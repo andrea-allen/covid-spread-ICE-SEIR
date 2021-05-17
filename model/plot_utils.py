@@ -1,17 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-        # plot_ts(solution_ts, t_lim_max, N, model_params.county_pop, model_params.detention_pop, model_params.staff_pop,
-        #         combine_staff=True, show_susceptible=show_susceptible,
-        #         show_recovered=show_recovered, community_separate_plot=True, normalize=normalize, same_plot=same_plot,
-        #         t_lim_min=t_lim_min, show_exposed=show_exposed, show_staff=show_staff, show_county=show_county)
-
-
 def plot_ts(time_series, N=400, county_pop=200, detention_pop=150, staff_pop=50, combine_staff=True,
             show_susceptible=False, show_recovered=False, community_separate_plot=False, normalize=False,
             same_plot=False, show_exposed=True, show_staff=True, show_county=True, num_days_plot=[0,100]):
-    t_lim_max = len(time_series[0])
     t_lim_min = min(np.where(time_series[0] > num_days_plot[0])[0])
     t_lim_max = max(np.where(time_series[0] < num_days_plot[1])[0])
     more_colors = [ "#D7790F", "#82CAA4", "#4C6788", "#84816F", "#71A9C9", "#AE91A8"]
@@ -22,7 +14,7 @@ def plot_ts(time_series, N=400, county_pop=200, detention_pop=150, staff_pop=50,
     time_series = np.array(time_series)
     # time_series = time_series.T
     if not same_plot:
-        plt.figure('Detention Cases')
+        plt.figure('Detention Cases', frameon=False)
     plt.xlabel('Days')
     plt.ylabel('Percent of population')
     # Detention
@@ -39,7 +31,7 @@ def plot_ts(time_series, N=400, county_pop=200, detention_pop=150, staff_pop=50,
                  label='D - Recovered')
 
     if not same_plot and show_staff==True:
-        plt.figure('Staff cases')
+        plt.figure('Staff cases', frameon=False)
     plt.xlabel('Days')
     plt.ylabel('Percent of population')
     if not combine_staff:
@@ -92,14 +84,14 @@ def plot_ts(time_series, N=400, county_pop=200, detention_pop=150, staff_pop=50,
     # plt.ylabel('Cases per 10,000 People', color=base_color)
     plt.ylabel('Percent of Population Actively Infected', color=base_color)
     # plt.legend(loc='upper left')
-    plt.legend(loc='upper right')
-    #TODO: cases per 10k instead?
+    plt.legend(loc='upper left')
+    # cases per 10k instead?
     # plt.ylim([0, 1])
     # plt.tight_layout()
 
     if not same_plot:
         if community_separate_plot:
-            plt.figure('community')
+            plt.figure('community', frameon=False)
             plt.xlabel('Days')
             plt.ylabel('Percent of population')
     # Community
@@ -119,7 +111,7 @@ def plot_ts(time_series, N=400, county_pop=200, detention_pop=150, staff_pop=50,
 
     # plt.xticks(time_series[0], rotation=45, fontsize=10)
     # plt.legend(loc='upper left')
-    plt.legend(loc='upper right')
+    plt.legend(loc='upper left', frameon=False)
     # plt.ylim([0, 1])
     # plt.tight_layout()
     # plt.show()

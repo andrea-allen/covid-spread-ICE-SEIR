@@ -1,6 +1,5 @@
 import scipy
 from scipy import integrate
-import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -28,7 +27,7 @@ class ModelParams:
         self.init_community_infections = init_community_infections
         self.init_detention_infections = init_detention_infections
 
-    def callibrate(self):  # unclear whetehr to do staff pop yet
+    def callibrate(self):
         beta_community_cal = self.c_0 * self.beta / (self.county_pop + self.staff_pop)
         beta_detention_cal = self.c_0 * self.c_jail * self.beta / (self.detention_pop + self.staff_pop)
         # beta_staff_cal = c_0 * self.beta / staff_pop

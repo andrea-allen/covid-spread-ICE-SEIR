@@ -145,13 +145,6 @@ def plot_covid_data(active_cases_detainees, active_cases_county, y_lim_vals, sho
     plt.box(on=None)
     plt.tick_params(axis='x', colors=base_color)
     plt.tick_params(axis='y', colors=base_color)
-    # plt.title('Fitting the Model to South Texas Detention Complex')
-    # plt.title('Employee Prediction at South Texas Detention Complex')
-    # plt.title('Scenario 2: South Texas Detention Complex')
-    # plt.title('Scenario 3: South Texas Detention Complex, Reduced Contact Rate')
-    # plt.title('South Texas Detention Complex in Frio County')
-    # plt.title('Fitting the Model to Karnes County Residential Center')
-    plt.title('Employee Prediction at Karnes County Residential Center')
-    # plt.title('Scenario 3: Detention case rate prediction with reduced relative contact rates')
+
     if show:
         plt.show()
